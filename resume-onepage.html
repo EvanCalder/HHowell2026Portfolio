@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume - Hayden Howell</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #1a1a2e;
+    background: #fff;
+    font-size: 9.75pt;
+    line-height: 1.38;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    padding: 0.4in 0.55in;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2.5px solid #2d2d6b;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+
+  .header-left h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #2d2d6b;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .header-left .title {
+    font-size: 11pt;
+    font-weight: 500;
+    color: #555;
+    margin-top: 1px;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 9pt;
+    color: #444;
+    line-height: 1.55;
+  }
+
+  .header-right a {
+    color: #2d2d6b;
+    text-decoration: none;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 7px;
+  }
+
+  .section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #2d2d6b;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    border-bottom: 1.2px solid #e0e0e0;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+  }
+
+  .section-title .section-link {
+    font-size: 8pt;
+    font-weight: 500;
+    color: #555;
+    text-transform: none;
+    letter-spacing: 0;
+    text-decoration: none;
+    margin-left: 8px;
+  }
+
+  /* Summary */
+  .summary {
+    font-size: 9.75pt;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  /* Experience entries */
+  .entry {
+    margin-bottom: 6px;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .entry-title {
+    font-size: 10pt;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .entry-date {
+    font-size: 9pt;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .entry-subtitle {
+    font-size: 9.5pt;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 1px;
+  }
+
+  ul {
+    padding-left: 16px;
+    margin-top: 1px;
+  }
+
+  li {
+    margin-bottom: 1px;
+    color: #333;
+  }
+
+  /* Projects */
+  .project-entry {
+    margin-bottom: 4px;
+    font-size: 9.5pt;
+  }
+
+  .project-name {
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .project-desc {
+    color: #444;
+  }
+
+  .project-tech {
+    color: #666;
+    font-size: 8.75pt;
+    font-style: italic;
+  }
+
+  /* Skills */
+  .skill-row {
+    margin-bottom: 2px;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+
+  .skill-label {
+    font-weight: 600;
+    color: #2d2d6b;
+  }
+
+  .skill-items {
+    color: #444;
+  }
+
+  /* Education */
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  @media print {
+    body { font-size: 9.75pt; }
+    .page { padding: 0.4in 0.55in; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Hayden Howell</h1>
+      <div class="title">Aspiring Data Engineer</div>
+    </div>
+    <div class="header-right">
+      hhowell403@gmail.com<br>
+      Hooks, TX<br>
+      <a href="https://github.com/hhowell116">github.com/hhowell116</a><br>
+      <a href="https://hayden-howell-portfolio.web.app">hayden-howell-portfolio.web.app</a>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">IT Specialist</span>
+        <span class="entry-date">Aug 2025 – Present</span>
+      </div>
+      <div class="entry-subtitle">Rowe Casa Organics &nbsp;·&nbsp; Hooks, TX</div>
+      <ul>
+        <li>Architected <strong>Orbit AI</strong>, a self-hosted multi-tenant Claude Code platform with per-user PTY isolation, automatic file locking, and AES-256-GCM token encryption. Deployed at orbitai.work behind a Cloudflare tunnel.</li>
+        <li>Built a <strong>12-dashboard analytics platform</strong> over a Cloudflare Worker API backend with KV caching and cron-based ETL pulling live data from two Shopify stores; now a primary metrics resource for C-Suite leadership.</li>
+        <li>Architecting a <strong>demand forecasting platform</strong> on Azure Data Factory, Azure SQL, and the Nixtla ML stack (StatsForecast, LightGBM, HierarchicalForecast) with multi-channel integration from Shopify, Amazon SP-API, and DEACOM ERP.</li>
+        <li><strong>Google Workspace → Microsoft 365 migration</strong> for the entire org with Active Directory provisioning, Exchange Online, Entra ID, and conditional access policies.</li>
+        <li>Supported the company-wide <strong>DEACOM ERP rollout</strong>. Configured department workflows, deployed Intune-managed barcode scanners for warehouse inventory tracking, and trained end users through the transition.</li>
+        <li>Manage day-to-day IT operations including Intune MDM, UniFi networking, ThreatLocker endpoint security, and SuperOps RMM for patching and remote access.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Data &amp; Customer Engagement Intern</span>
+        <span class="entry-date">Jan 2023 – Feb 2025</span>
+      </div>
+      <div class="entry-subtitle">Michigan Health Information Network (MiHIN) &nbsp;·&nbsp; Remote</div>
+      <ul>
+        <li>Queried and validated healthcare datasets in SQL and Excel in support of Michigan's statewide health information exchange.</li>
+        <li>Acted as liaison between MiHIN and healthcare organizations to facilitate secure data exchange via destination strings; onboarded and decommissioned organizations through Jira and HubSpot.</li>
+        <li>Collected and analyzed data for Root Cause Analysis (RCA) requests to resolve internal data integrity issues.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <div class="section">
+    <div class="section-title">Selected Projects <a class="section-link" href="https://hayden-howell-portfolio.web.app">hayden-howell-portfolio.web.app</a></div>
+
+    <div class="project-entry">
+      <span class="project-name">Orbit AI:</span> <span class="project-desc">Multi-tenant team-based AI coding platform with browser xterm.js terminals, per-user PTY isolation, automatic file locking, real-time SSE activity, and team rules synced to CLAUDE.md.</span>
+      <span class="project-tech">Bun, Hono, SQLite, React 19, xterm.js, node-pty, Cloudflare Tunnel, Firebase Auth, AES-256-GCM, Tauri v2</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">Forecasting Platform (in progress):</span> <span class="project-desc">Custom demand forecasting solution replacing manual spreadsheets with an automated ML pipeline. Tiered approach: StatsForecast baselines, LightGBM for top SKUs, HierarchicalForecast for multi-channel reconciliation.</span>
+      <span class="project-tech">Azure Data Factory, Azure SQL, Azure Functions, Python, Nixtla, LightGBM, Power BI</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">Operations Analytics Dashboard:</span> <span class="project-desc">12-dashboard platform on a Cloudflare Worker API backend with KV caching, cursor-based pagination, and cron ETL processing live data from two Shopify stores.</span>
+      <span class="project-tech">JavaScript, Cloudflare Workers/KV, Shopify REST API, Chart.js, Firebase, Python</span>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skill-row"><span class="skill-label">Languages:</span> <span class="skill-items">Python, SQL, JavaScript, TypeScript, HTML, CSS</span></div>
+    <div class="skill-row"><span class="skill-label">Data &amp; Cloud:</span> <span class="skill-items">Azure (Data Factory, SQL, Functions, Key Vault), Cloudflare (Workers, KV, Tunnel), Firebase / Firestore, Bun, Hono, Node.js, SQLite, ETL Pipelines, Cron Scheduling, API Integration, Power BI, Pandas</span></div>
+    <div class="skill-row"><span class="skill-label">AI &amp; Security:</span> <span class="skill-items">Claude Code CLI, Anthropic API, Prompt Caching, Multi-Agent Orchestration, AES-256-GCM, JWT (jose), HMAC Key Derivation, Firebase OAuth</span></div>
+    <div class="skill-row"><span class="skill-label">Infrastructure:</span> <span class="skill-items">Microsoft 365, Active Directory, Entra ID, Intune MDM, UniFi, ThreatLocker, SuperOps RMM, DEACOM ERP, systemd, Docker, GitHub Actions</span></div>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="edu-header">
+        <span class="entry-title">Bachelor of Science in Computer Science</span>
+        <span class="entry-date">Aug 2021 – May 2025</span>
+      </div>
+      <div class="entry-subtitle">Texas A&amp;M University – Texarkana</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

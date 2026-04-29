@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #1a1a2e;
+    background: #fff;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding: 0.5in 0.6in;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2.5px solid #2d2d6b;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+
+  .header-left h1 {
+    font-size: 26pt;
+    font-weight: 700;
+    color: #2d2d6b;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .header-left .title {
+    font-size: 12pt;
+    font-weight: 500;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 9.5pt;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .header-right a {
+    color: #2d2d6b;
+    text-decoration: none;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 11px;
+  }
+
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #2d2d6b;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-bottom: 1.5px solid #e0e0e0;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  .section-title .section-link {
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: #555;
+    text-transform: none;
+    letter-spacing: 0;
+    text-decoration: none;
+    margin-left: 8px;
+  }
+
+  /* Experience entries */
+  .entry {
+    margin-bottom: 10px;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .entry-title {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .entry-date {
+    font-size: 9.5pt;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .entry-subtitle {
+    font-size: 10pt;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 3px;
+  }
+
+  .entry-location {
+    font-size: 9pt;
+    color: #777;
+    margin-bottom: 3px;
+  }
+
+  ul {
+    padding-left: 18px;
+    margin-top: 3px;
+  }
+
+  li {
+    margin-bottom: 2px;
+    color: #333;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 30px;
+  }
+
+  .skill-category {
+    margin-bottom: 4px;
+  }
+
+  .skill-label {
+    font-weight: 600;
+    color: #2d2d6b;
+    font-size: 9.5pt;
+  }
+
+  .skill-items {
+    color: #444;
+    font-size: 9.5pt;
+  }
+
+  /* Projects */
+  .project-entry {
+    margin-bottom: 6px;
+  }
+
+  .project-name {
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .project-desc {
+    color: #444;
+    font-size: 9.5pt;
+  }
+
+  .project-tech {
+    color: #666;
+    font-size: 9pt;
+    font-style: italic;
+  }
+
+  /* Education */
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Hayden Howell</h1>
+      <div class="title">Aspiring Data Engineer</div>
+    </div>
+    <div class="header-right">
+      hhowell403@gmail.com<br>
+      Hooks, TX<br>
+      <a href="https://github.com/hhowell116">github.com/hhowell116</a><br>
+      <a href="https://hayden-howell-portfolio.web.app">hayden-howell-portfolio.web.app</a>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="section">
+    <div class="section-title">Summary</div>
+    <p>Computer Science graduate and aspiring data engineer with experience designing data pipelines, building real-time analytics platforms, and developing AI-integrated tools. Architected Orbit AI, a multi-tenant team-based Claude Code platform deployed on a self-hosted VM behind a Cloudflare tunnel. Built a 12-dashboard operations platform pulling live Shopify data through a Cloudflare Worker backend. Also manage day-to-day IT operations including Microsoft 365, Intune MDM, UniFi networking, and ThreatLocker.</p>
+  </div>
+
+  <!-- Experience -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">IT Specialist</span>
+        <span class="entry-date">Aug 2025 – Present</span>
+      </div>
+      <div class="entry-subtitle">Rowe Casa Organics &nbsp;·&nbsp; Full-time</div>
+      <div class="entry-location">Hooks, TX &nbsp;·&nbsp; On-site</div>
+      <ul>
+        <li>Architected Orbit AI, a self-hosted multi-tenant Claude Code platform our IT team uses to collaborate on projects, with per-user isolation and automatic file locking.</li>
+        <li>Built a 12-dashboard analytics platform pulling live data from two Shopify stores through a Cloudflare Worker API backend with KV response caching, cursor-based pagination, and automated ETL. Now one of the primary metrics resources for C-Suite leadership.</li>
+        <li>Built data pipelines that fetch, transform, and cache order, fulfillment, and shipping data every 6 hours with 30-minute incremental refreshes and nightly backfills.</li>
+        <li>Architecting a demand forecasting platform using Azure Data Factory, Azure SQL, and Nixtla ML with multi-channel integration from Shopify, Amazon SP-API, and DEACOM ERP.</li>
+        <li>Supported company-wide DEACOM ERP rollout. Configured workflows, deployed Intune-managed barcode scanners, and trained departments.</li>
+        <li>Completed Google Workspace to Microsoft 365 migration with Active Directory provisioning, Exchange Online, Entra ID, and conditional access policies.</li>
+        <li>Managed day-to-day IT operations including ticketing, UniFi networking, ThreatLocker, SuperOps RMM, and Intune MDM across iPads, scanners, and endpoints.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Data Entry Specialist</span>
+        <span class="entry-date">Jan 2024 – Feb 2025</span>
+      </div>
+      <div class="entry-subtitle">Michigan Health Information Network Shared Services (MiHIN) &nbsp;·&nbsp; Internship</div>
+      <div class="entry-location">Texarkana, TX &nbsp;·&nbsp; Remote</div>
+      <ul>
+        <li>Queried and validated healthcare datasets using SQL in support of Michigan's statewide health information exchange.</li>
+        <li>Maintained data integrity across large Excel datasets, ensuring accuracy for downstream reporting and compliance.</li>
+        <li>Collaborated across teams using HubSpot and Jira to ensure consistent data pipelines and task tracking.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Customer Engagement Team</span>
+        <span class="entry-date">Jan 2023 – Jan 2024</span>
+      </div>
+      <div class="entry-subtitle">Michigan Health Information Network Shared Services (MiHIN) &nbsp;·&nbsp; Internship</div>
+      <div class="entry-location">Texarkana, TX &nbsp;·&nbsp; Remote</div>
+      <ul>
+        <li>Acted as liaison between MiHIN and healthcare organizations to facilitate secure data exchange.</li>
+        <li>Created and managed communication pathways using destination strings.</li>
+        <li>Onboarded and decommissioned organizations via Jira tickets and HubSpot.</li>
+        <li>Collected data for Root Cause Analysis (RCA) requests to resolve internal issues.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Projects -->
+  <div class="section">
+    <div class="section-title">Projects <a class="section-link" href="https://hayden-howell-portfolio.web.app">hayden-howell-portfolio.web.app</a></div>
+
+    <div class="project-entry">
+      <span class="project-name">Orbit AI:</span> <span class="project-desc">Multi-tenant team-based AI coding platform with browser-based Claude Code terminal, automatic file locking, real-time SSE activity, per-user encryption, and team rules synced to CLAUDE.md.</span><br>
+      <span class="project-tech">Bun, Hono, SQLite, React 19, Vite, Tailwind, xterm.js, node-pty, Tauri, Cloudflare Tunnel, Firebase Auth</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">Forecasting Solution (In Progress):</span> <span class="project-desc">Custom demand forecasting platform with Azure Data Factory ETL, Azure SQL warehouse, and Nixtla ML. Multi-channel integration from Shopify, Amazon SP-API, and on-premises ERP.</span><br>
+      <span class="project-tech">Azure SQL, Azure Data Factory, Python, StatsForecast, LightGBM, Power BI</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">Operations Analytics Dashboard:</span> <span class="project-desc">12-dashboard platform with Cloudflare Worker API backend, KV caching, and cron-based ETL processing live data from two Shopify stores.</span><br>
+      <span class="project-tech">JavaScript, Python, Cloudflare Workers/KV, Shopify REST API, Chart.js, Firebase, SQL</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">HR Admin &amp; TV Display System:</span> <span class="project-desc">Monorepo admin dashboard with real-time Firestore sync to Airtame-connected TV displays for employee recognition. Deployed on every facility TV.</span><br>
+      <span class="project-tech">React, TypeScript, Firebase, Cloud Functions, Firestore</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">Shipping Department Leaderboards:</span> <span class="project-desc">Real-time leaderboard on warehouse TVs ranking employees by fulfillment performance via ShipStation API data.</span><br>
+      <span class="project-tech">HTML, CSS Grid, JavaScript, ShipStation API, Google Sheets</span>
+    </div>
+
+    <div class="project-entry">
+      <span class="project-name">IT Help Portal:</span> <span class="project-desc">Internal IT portal with conditional surveys, request forms, role-based access, and Firestore to Google Sheets pipeline.</span><br>
+      <span class="project-tech">JavaScript, Firebase, Google Apps Script</span>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <span class="skill-label">Languages:</span>
+        <span class="skill-items">Python, SQL, JavaScript, TypeScript, HTML, CSS</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">Data Engineering:</span>
+        <span class="skill-items">ETL Pipelines, Azure Data Factory, Azure SQL, Cloudflare Workers/KV, Cron Scheduling, API Integration, Power BI, Chart.js, Pandas</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">Cloud &amp; Backend:</span>
+        <span class="skill-items">Bun, Hono, Node.js, SQLite, Azure (SQL, Data Factory, Functions, Key Vault), Firebase, Firestore, Cloudflare (Workers, KV, Tunnel), WebSocket, SSE</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">IT Infrastructure:</span>
+        <span class="skill-items">Microsoft 365, Active Directory, Entra ID, Intune MDM, UniFi Networking, ThreatLocker, SuperOps RMM, DEACOM ERP, systemd</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">Tools &amp; DevOps:</span>
+        <span class="skill-items">Git, GitHub, GitHub Actions, Docker, React, Vite, Tauri v2, xterm.js, node-pty, Jira, HubSpot</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">AI &amp; Security:</span>
+        <span class="skill-items">Claude Code CLI, Anthropic API, Prompt Caching, Multi-Agent Orchestration, AES-256-GCM, JWT (jose), HMAC Key Derivation, Firebase OAuth</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="edu-header">
+        <span class="entry-title">Bachelor of Science in Computer Science</span>
+        <span class="entry-date">Aug 2021 – May 2025</span>
+      </div>
+      <div class="entry-subtitle">Texas A&M University – Texarkana</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
