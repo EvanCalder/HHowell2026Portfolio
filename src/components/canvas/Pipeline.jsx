@@ -239,18 +239,18 @@ function PipelineScene() {
 
   // Compact layout — everything fits without cutoff
   const sources = [
-    { pos: [-3.2, 0.9, 0], label: "Shopify API", color: "#96BF48" },
-    { pos: [-3.2, -0.1, 0], label: "ShipStation", color: "#5f9ea0" },
-    { pos: [-3.2, -1.1, 0], label: "DEACOM ERP", color: "#e07040" },
+    { pos: [-3.2, 0.9, 0], label: "Data Sources", color: "#3b82f6" },
+    { pos: [-3.2, -0.1, 0], label: "Features", color: "#5f9ea0" },
+    { pos: [-3.2, -1.1, 0], label: "Embeddings", color: "#e07040" },
   ];
 
   const hubPos = [0, 0, 0];
   const cachePos = [0, -1.4, 0.5];
 
   const outputs = [
-    { pos: [3.2, 0.9, 0], label: "Dashboards", color: "#915EFF" },
-    { pos: [3.2, -0.1, 0], label: "KPI Reports", color: "#7c3aed" },
-    { pos: [3.2, -1.1, 0], label: "TV Displays", color: "#a78bfa" },
+    { pos: [3.2, 0.9, 0], label: "ML APIs", color: "#915EFF" },
+    { pos: [3.2, -0.1, 0], label: "RAG Answers", color: "#7c3aed" },
+    { pos: [3.2, -1.1, 0], label: "Insights", color: "#a78bfa" },
   ];
 
   return (
@@ -271,11 +271,11 @@ function PipelineScene() {
       ))}
 
       {/* Central processing hub */}
-      <HubNode position={hubPos} label="Data Pipeline" color="#f6821f" radius={0.45} />
+      <HubNode position={hubPos} label="ML Platform" color="#f6821f" radius={0.45} />
 
       {/* KV Cache — smaller, offset forward */}
       <Float speed={2} rotationIntensity={0} floatIntensity={0.2} floatingRange={[-0.03, 0.03]}>
-        <PipelineNode position={cachePos} label="Data Lake" color="#3b82f6" radius={0.28} />
+        <PipelineNode position={cachePos} label="Vector DB" color="#3b82f6" radius={0.28} />
       </Float>
 
       {/* Output nodes */}

@@ -4,75 +4,93 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
+import { useSound } from "../context/SoundContext";
+import useButtonHoverSound from "../hooks/useButtonHoverSound";
+import SoundToggle from "./SoundToggle";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { play } = useSound();
+  const hoverSound = useButtonHoverSound();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (nav) => {
+    setActive(nav.title);
+    play("nav");
+  };
+
+  const handleLogoClick = () => {
+    setActive("");
+    window.scrollTo(0, 0);
+    play("nav");
+  };
+
+  const handleMenuToggle = () => {
+    setToggle(!toggle);
+    play("menu");
+  };
+
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-50 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ${
+        scrolled
+          ? "bg-primary/98 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.35)] border-b border-white/[0.06]"
+          : "bg-primary/85 backdrop-blur-sm border-b border-white/[0.04]"
       }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
           to='/'
           className='flex items-center gap-2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
+          onClick={handleLogoClick}
+          {...hoverSound}
         >
           <img src={logo} alt='logo' className='w-14 h-14 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Hayden &nbsp;
-            <span className='sm:block hidden'> | Howell</span>
+            Timothy &nbsp;
+            <span className='sm:block hidden'> | Calder</span>
           </p>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              {nav.external ? (
-                <a href="/Hayden_Howell_Resume.pdf" target="_blank" rel="noopener noreferrer">{nav.title}</a>
-              ) : (
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              )}
-            </li>
-          ))}
-        </ul>
+        <div className='hidden sm:flex items-center gap-6'>
+          <ul className='list-none flex flex-row gap-10'>
+            {navLinks.map((nav) => (
+              <li
+                key={nav.id}
+                className={`${
+                  active === nav.title ? "text-white" : "text-secondary"
+                } hover:text-white text-[18px] font-medium cursor-pointer`}
+                {...hoverSound}
+                onClick={() => handleNavClick(nav)}
+              >
+                {nav.external ? (
+                  <a href="/Timothy_Calder_Resume.docx" target="_blank" rel="noopener noreferrer">{nav.title}</a>
+                ) : (
+                  <a href={`#${nav.id}`}>{nav.title}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+          <SoundToggle />
+        </div>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className='sm:hidden flex flex-1 justify-end items-center gap-3'>
+          <SoundToggle />
           <img
             src={toggle ? close : menu}
             alt='menu'
-            className='w-[28px] h-[28px] object-contain'
-            onClick={() => setToggle(!toggle)}
+            className='w-[28px] h-[28px] object-contain cursor-pointer'
+            onClick={handleMenuToggle}
+            {...hoverSound}
           />
 
           <div
@@ -87,13 +105,14 @@ const Navbar = () => {
                   className={`font-poppins cursor-pointer text-[16px] ${
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
+                  {...hoverSound}
                   onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
+                    setToggle(false);
+                    handleNavClick(nav);
                   }}
                 >
                   {nav.external ? (
-                    <a href="/Hayden_Howell_Resume.pdf" target="_blank" rel="noopener noreferrer">{nav.title}</a>
+                    <a href="/Timothy_Calder_Resume.docx" target="_blank" rel="noopener noreferrer">{nav.title}</a>
                   ) : (
                     <a href={`#${nav.id}`}>{nav.title}</a>
                   )}

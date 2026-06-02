@@ -1,20 +1,18 @@
-# Hayden Howell — Portfolio Site
+# Timothy Calder — Portfolio Site
 
-Personal portfolio site built with React, Three.js, and Framer Motion. Animated 3D data pipeline hero, project gallery with deep-dive modals, work experience timeline, and an embedded resume.
-
-**Live Site:** [hayden-howell-portfolio.web.app](https://hayden-howell-portfolio.web.app)
+Personal portfolio site built with React, Three.js, and Framer Motion. Animated 3D AI/ML pipeline hero, project gallery with detail modals, work experience timeline, and contact form.
 
 ## Features
 
-- 3D data pipeline visualization on the hero section (React Three Fiber + Drei)
-- Project cards with detailed modals (architecture, data flow, tech stack, screenshots)
-- Floating 3D technology balls
+- 3D AI/ML pipeline visualization on the hero section (React Three Fiber + Drei)
+- Project cards with detailed modals (architecture, data flow, tech stack)
+- Floating tech stack showcase
 - 3D Earth globe on the contact page
 - Smooth scroll animations via Framer Motion
-- Tools & Platforms showcase
+- Tools & Platforms showcase aligned with AI/ML engineering skills
 - Work experience timeline
 - Contact form (FormSubmit.co)
-- Embedded one-page and full-length resume PDFs
+- Resume download (`public/Timothy_Calder_Resume.docx`)
 - Fully responsive design
 
 ## Tech Stack
@@ -27,36 +25,29 @@ Personal portfolio site built with React, Three.js, and Framer Motion. Animated 
 | Framer Motion | Animations |
 | Tailwind CSS 3 | Styling |
 | FormSubmit.co | Contact form email delivery |
-| Firebase Hosting | Deployment |
 
 ## Setup
 
 ```bash
 npm install --legacy-peer-deps
-npx vite          # dev server
-npx vite build    # production build
+npm run dev
 ```
 
-## Resume Workflow
-
-The portfolio links to two resume PDFs at the project root and in `public/`:
-
-- `Hayden_Howell_Resume.pdf` — primary 1-page version (rendered from `resume-onepage.html`)
-- `Hayden_Howell_Resume_Full.pdf` — long-form 2-page version (rendered from `resume.html`)
-
-To regenerate after editing either HTML, run Chrome headless:
+Open **http://127.0.0.1:5173**
 
 ```bash
-chrome --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=5000 \
-  --print-to-pdf="Hayden_Howell_Resume.pdf" \
-  "file:///absolute/path/to/resume-onepage.html"
+npm run build
+npm run preview
 ```
 
-Then copy the PDF into `public/` so Firebase picks it up on the next build.
+## Resume
 
-## Deploy
+Resume source: `public/Timothy_Calder_Resume.docx` (copied from your local resume file).
 
-```bash
-npx vite build
-npx firebase deploy --only hosting
-```
+To use a PDF instead, export the Word document to PDF, place it at `public/Timothy_Calder_Resume.pdf`, and update the Resume links in `src/components/Navbar.jsx`.
+
+## Contact
+
+- Email: timothy.calder.dev@gmail.com
+- Phone: +1 339 365-7217
+- Location: Makati, National Capital Region, Philippines

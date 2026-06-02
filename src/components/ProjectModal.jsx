@@ -2,11 +2,23 @@ import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { github } from "../assets";
+import { useSound } from "../context/SoundContext";
+import useButtonHoverSound from "../hooks/useButtonHoverSound";
 
 const ProjectModal = ({ project, onClose }) => {
+  const { play } = useSound();
+  const closeHover = useButtonHoverSound();
+
+  useEffect(() => {
+    if (project) play("open");
+  }, [project, play]);
+
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        play("close");
+        onClose();
+      }
     };
     document.addEventListener("keydown", handleEscape);
     document.body.style.overflow = "hidden";
@@ -14,7 +26,12 @@ const ProjectModal = ({ project, onClose }) => {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [onClose, play]);
+
+  const handleClose = () => {
+    play("close");
+    onClose();
+  };
 
   if (!project) return null;
 
@@ -25,12 +42,10 @@ const ProjectModal = ({ project, onClose }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
-        onClick={onClose}
+        onClick={handleClose}
       >
-        {/* Backdrop */}
         <div className="absolute inset-0 bg-black/70" />
 
-        {/* Modal Content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -39,59 +54,111 @@ const ProjectModal = ({ project, onClose }) => {
           className="relative bg-tertiary rounded-2xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto z-10"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Close Button */}
           <button
-            onClick={onClose}
+            onClick={handleClose}
+            {...closeHover}
             className="absolute top-4 right-4 text-white text-2xl w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center z-20 transition-colors"
           >
             &times;
           </button>
 
-          {/* Video Section — hidden until videos are added */}
-          {project.videoUrl && (
-            <div className="w-full aspect-video bg-black-100 rounded-t-2xl overflow-hidden">
-              {project.videoUrl ? (
-                <iframe
-                  src={project.videoUrl}
-                  title={`${project.name} video`}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center text-secondary">
-                  <svg
-                    className="w-16 h-16 mb-3 opacity-40"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  <p className="text-sm opacity-60">Video coming soon</p>
+          {project.image && (
+            <div className="relative w-full aspect-video bg-black-100 rounded-t-2xl overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-full object-cover"
+              />
+              {project.companyLogo && (
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-5 sm:p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white rounded-lg p-2 shadow-lg">
+                      <img
+                        src={project.companyLogo}
+                        alt={project.company}
+                        className="h-7 sm:h-9 w-auto max-w-[80px] object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-white font-bold text-[16px] sm:text-[20px]">{project.name}</p>
+                      <p className="text-white/70 text-[12px] sm:text-[14px]">
+                        {[project.company, project.role, project.period].filter(Boolean).join(" · ")}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
           )}
 
-          {/* Content */}
-          <div className="p-6">
-            <h2 className="text-white font-bold text-[28px]">{project.name}</h2>
+          {project.videoUrl && (
+            <div className="w-full aspect-video bg-black-100 overflow-hidden">
+              <iframe
+                src={project.videoUrl}
+                title={`${project.name} video`}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          )}
 
-            <p className="mt-3 text-secondary text-[15px] leading-[26px] whitespace-pre-line">
+          <div className="p-6">
+            {!project.image && (
+              <div className="flex items-center gap-3 mb-4">
+                {project.companyLogo && (
+                  <div className="bg-white rounded-lg p-2">
+                    <img
+                      src={project.companyLogo}
+                      alt={project.company}
+                      className="h-8 w-auto max-w-[72px] object-contain"
+                    />
+                  </div>
+                )}
+                <div>
+                  <h2 className="text-white font-bold text-[28px]">{project.name}</h2>
+                  <p className="text-secondary text-[14px]">
+                    {[project.company, project.role, project.period].filter(Boolean).join(" · ")}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {project.image && !project.companyLogo && (
+              <h2 className="text-white font-bold text-[28px]">{project.name}</h2>
+            )}
+
+            <div className="mt-3 flex flex-wrap gap-2">
+              {project.enterprise && (
+                <span className="px-3 py-1 bg-[#915EFF]/20 text-[#c4b5fd] text-[12px] font-semibold rounded-full border border-[#915EFF]/30">
+                  Enterprise Project
+                </span>
+              )}
+              {project.metric && (
+                <span className="px-3 py-1 bg-green-500/10 text-green-300 text-[12px] font-semibold rounded-full border border-green-500/20">
+                  {project.metric}
+                </span>
+              )}
+              {project.category && (
+                <span className="px-3 py-1 bg-white/5 text-secondary text-[12px] font-medium rounded-full border border-white/10">
+                  {project.category}
+                </span>
+              )}
+            </div>
+
+            <p className="mt-4 text-secondary text-[15px] leading-[26px] whitespace-pre-line">
               {project.detailedDescription || project.description}
             </p>
 
-            {/* Data Integration */}
             {project.dataIntegration && (
               <div className="mt-5 p-4 bg-black-200 rounded-xl border border-white/10">
-                <h3 className="text-white font-semibold text-[16px] mb-2">Data Integration</h3>
+                <h3 className="text-white font-semibold text-[16px] mb-2">Architecture & Integration</h3>
                 <p className="text-secondary text-[14px] leading-[22px] whitespace-pre-line">
                   {project.dataIntegration}
                 </p>
               </div>
             )}
 
-            {/* Tech Stack */}
             {project.techStack && project.techStack.length > 0 && (
               <div className="mt-5">
                 <h3 className="text-white font-semibold text-[16px] mb-3">Tech Stack</h3>
@@ -108,7 +175,6 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
             )}
 
-            {/* Action Buttons */}
             <div className="mt-6 flex flex-wrap gap-3">
               {project.source_code_link && (
                 <a
@@ -137,18 +203,17 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
           </div>
 
-          {/* Screenshots — vertical stacked with captions */}
-          {project.images && project.images.length > 0 && (
+          {project.images && project.images.length > 1 && (
             <div className="px-6 pb-6 flex flex-col gap-5">
               <h3 className="text-white font-semibold text-[16px]">Screenshots</h3>
-              {project.images.map((item, i) => {
+              {project.images.slice(1).map((item, i) => {
                 const src = item.src || item;
                 const caption = item.caption || null;
                 return (
                   <div key={i}>
                     <img
                       src={src}
-                      alt={`${project.name} screenshot ${i + 1}`}
+                      alt={`${project.name} screenshot ${i + 2}`}
                       className="w-full rounded-xl border border-white/10"
                     />
                     {caption && (
@@ -159,17 +224,6 @@ const ProjectModal = ({ project, onClose }) => {
                   </div>
                 );
               })}
-            </div>
-          )}
-
-          {/* Single image fallback for projects without gallery */}
-          {(!project.images || project.images.length === 0) && project.image && (
-            <div className="px-6 pb-6">
-              <img
-                src={project.image}
-                alt={project.name}
-                className="w-full rounded-xl border border-white/10"
-              />
             </div>
           )}
         </motion.div>

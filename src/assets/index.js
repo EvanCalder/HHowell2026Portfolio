@@ -25,6 +25,15 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import sap from "./company/sap.png";
+import accenture from "./company/accenture.png";
+import grab from "./company/grab.png";
+import sprout from "./company/sprout.png";
+
+import projectSapAiml from "./projects/project-sap-aiml.png";
+import projectAccentureMl from "./projects/project-accenture-ml.png";
+import projectAccentureBackend from "./projects/project-accenture-backend.png";
+import projectSproutData from "./projects/project-sprout-data.png";
 
 import kpipic1 from "./kpipic1.png";
 import kpipic2 from "./kpipic2.png";
@@ -97,6 +106,14 @@ export {
   shopify,
   starbucks,
   tesla,
+  sap,
+  accenture,
+  grab,
+  sprout,
+  projectSapAiml,
+  projectAccentureMl,
+  projectAccentureBackend,
+  projectSproutData,
   kpipic1,
   kpipic2,
   kpipic3,
